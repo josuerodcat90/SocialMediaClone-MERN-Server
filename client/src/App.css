@@ -1,0 +1,9 @@
+::-webkit-scrollbar {
+	display: none;
+}
+
+.card-title {
+	display: block !important;
+	text-align: center;
+	font-size: 1.5rem;
+}
