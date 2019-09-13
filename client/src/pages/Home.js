@@ -1,9 +1,9 @@
 import React from 'react';
 import { Grid, Card, Divider } from 'semantic-ui-react';
-import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import 'moment/locale/es';
+import { useQuery } from '@apollo/react-hooks';
 import moment from 'moment';
+import 'moment/locale/es';
 
 import DateFeed from '../components/DateFeeds';
 
