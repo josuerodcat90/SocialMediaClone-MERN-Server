@@ -1,10 +1,14 @@
 import React from 'react';
+import { Container, Typography } from '@material-ui/core';
+import MenuDrawer from './Components/Drawer';
 
 function App() {
 	return (
-		<div>
-			<h1>Hello World!</h1>
-		</div>
+		<MenuDrawer>
+			<Container>
+				<Typography variant='h1'>Hello World!</Typography>
+			</Container>
+		</MenuDrawer>
 	);
 }
 
