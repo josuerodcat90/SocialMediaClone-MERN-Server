@@ -39,7 +39,7 @@ function MenuBar() {
 				name='usuarios'
 				active={activeItem === 'usuarios'}
 				onClick={handleItemClick}
-				icon='user circle outline'
+				icon='user circle'
 				as={Link}
 				to='/usuarios'
 			/>
