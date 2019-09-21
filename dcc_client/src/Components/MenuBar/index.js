@@ -10,7 +10,7 @@ function MenuBar() {
 	const handleItemClick = (e, { name }) => setActiveItem(name);
 
 	return (
-		<Menu pointing secondary inverted color='teal' size='tiny'>
+		<Menu pointing inverted borderless color='black' size='large' fixed='top'>
 			<Menu.Item
 				name='inicio'
 				active={activeItem === 'inicio'}

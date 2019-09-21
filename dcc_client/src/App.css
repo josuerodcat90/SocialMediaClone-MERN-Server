@@ -1,4 +1,19 @@
-.topNotch {
-	border-top: 25px !important;
-	border-top-color: solid blue !important;
+::-webkit-scrollbar {
+	display: none;
+}
+
+.card-title {
+	display: block !important;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.segment-padd {
+	padding-top: 55px !important;
+	margin-top: 0px !important;
+	border: 0px !important;
+}
+
+.column-content {
+	height: fit-content !important;
 }

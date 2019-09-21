@@ -19,7 +19,7 @@ export default gql`
 	}
 
 	type Query {
-		dates: [Date]
+		getDates: [Date]
 		getDate(_id: ID!): Date
 	}
 

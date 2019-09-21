@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Container, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -17,16 +17,14 @@ function App() {
 	return (
 		<Router>
 			<Menubar />
-			<Container>
-				<Segment raised className='topNotch'>
-					<Route exact path='/' component={Inicio} />
-					<Route exact path='/pacientes' component={Pacientes} />
-					<Route exact path='/calendario' component={Calendario} />
-					<Route exact path='/usuarios' component={Usuarios} />
-					<Route exact path='/login' component={Login} />
-					<Route exact path='/registro' component={Registro} />
-				</Segment>
-			</Container>
+			<Segment raised className='segment-padd'>
+				<Route exact path='/' component={Inicio} />
+				<Route exact path='/pacientes' component={Pacientes} />
+				<Route exact path='/calendario' component={Calendario} />
+				<Route exact path='/usuarios' component={Usuarios} />
+				<Route exact path='/login' component={Login} />
+				<Route exact path='/registro' component={Registro} />
+			</Segment>
 		</Router>
 	);
 }

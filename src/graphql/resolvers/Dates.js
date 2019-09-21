@@ -5,7 +5,7 @@ import moment from 'moment';
 
 export default {
 	Query: {
-		async dates() {
+		async getDates() {
 			try {
 				const dates = await Dates.find().sort({ start_date: 1 });
 				return dates;
