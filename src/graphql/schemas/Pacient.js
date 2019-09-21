@@ -15,7 +15,7 @@ export default gql`
 
 	type Query {
 		getPacient(_id: ID!): Pacient!
-		pacients: [Pacient]!
+		getPacients: [Pacient]!
 	}
 
 	input PacientInput {

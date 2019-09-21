@@ -16,7 +16,7 @@ export default gql`
 
 	type Query {
 		getUser(_id: ID): User!
-		users: [User]!
+		getUsers: [User]!
 	}
 
 	input UserInput {

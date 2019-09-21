@@ -2,7 +2,7 @@ import Images from '../../models/Image';
 
 export default {
 	Query: {
-		async images() {
+		async getImages() {
 			return await Images.find();
 		},
 		async getImage(_, { _id }) {
