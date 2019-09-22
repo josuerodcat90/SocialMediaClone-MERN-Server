@@ -1,11 +1,11 @@
 import React from 'react';
+import { Container } from '@material-ui/core';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Container } from 'semantic-ui-react';
 
-import MenuBar from './components/MenuBar';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import 'typeface-roboto';
+
+import { Home, Login, Register } from './pages';
+import NavBar from './components/AppBar';
 
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
@@ -13,8 +13,8 @@ import './App.css';
 function App() {
 	return (
 		<Router>
+			<NavBar />
 			<Container>
-				<MenuBar />
 				<Route exact path='/' component={Home} />
 				<Route exact path='/login' component={Login} />
 				<Route exact path='/register' component={Register} />

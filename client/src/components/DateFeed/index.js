@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import 'moment/locale/es';
 import moment from 'moment';
 
-function DateFeeds({ date: { _id, title, start_date, end_date } }) {
+function DateFeed({ date: { _id, title, start_date, end_date } }) {
 	const start = moment(start_date);
 	const end = moment(end_date);
 	const timediff = moment.duration(end.diff(start));
@@ -23,23 +23,21 @@ function DateFeeds({ date: { _id, title, start_date, end_date } }) {
 	};
 
 	return (
-		<Feed fluid>
-			<Feed.Event>
-				<Feed.Label icon='calendar' as={Link} to={`/dates/${_id}`} />
-				<Feed.Content>
-					<Feed.Date>
-						Comienza en:{' '}
-						{moment(start_date)
-							.startOf()
-							.fromNow(true)}
-						{' -- '}
-						Dura: {duration()}
-					</Feed.Date>
-					<Feed.Summary> {title}</Feed.Summary>
-				</Feed.Content>
-			</Feed.Event>
-		</Feed>
+		<Feed.Event>
+			<Feed.Label icon='calendar' as={Link} to={`/dates/${_id}`} />
+			<Feed.Content>
+				<Feed.Date>
+					Comienza en:{' '}
+					{moment(start_date)
+						.startOf()
+						.fromNow(true)}
+					{' -- '}
+					Dura: {duration()}
+				</Feed.Date>
+				<Feed.Summary>{title}</Feed.Summary>
+			</Feed.Content>
+		</Feed.Event>
 	);
 }
 
-export default DateFeeds;
+export default DateFeed;
