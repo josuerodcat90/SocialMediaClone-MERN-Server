@@ -1,1 +1,1 @@
-# Task App with MERN + GraphQL and Material UI
+# Blog App with MERN + GraphQL and Material UI
