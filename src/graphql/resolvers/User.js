@@ -17,7 +17,7 @@ function generateToken(user) {
 
 export default {
 	Query: {
-		async users() {
+		async getUsers() {
 			return await Users.find();
 		},
 		async getUser(_, { _id }) {

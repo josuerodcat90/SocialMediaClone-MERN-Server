@@ -20,7 +20,7 @@ export default gql`
 
 	type Query {
 		getImage(_id: ID!): Image!
-		images: [Image]!
+		getImages: [Image]!
 	}
 
 	input iPac {

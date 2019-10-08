@@ -2,7 +2,7 @@ import Pacients from '../../models/Pacient';
 
 export default {
 	Query: {
-		async pacients() {
+		async getPacients() {
 			return await Pacients.find();
 		},
 		async getPacient(_, { _id }) {

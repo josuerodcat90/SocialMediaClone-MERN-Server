@@ -48,7 +48,13 @@ const dateSchema = new Schema({
 	user: {
 		type: String,
 		required: true
-	}
+	},
+	likes: [
+		{
+			username: String,
+			createdAt: String
+		}
+	]
 });
 
 export default model('Dates', dateSchema);

@@ -10,16 +10,18 @@ export default gql`
 		pacient: ID!
 		user: String!
 		comments: [Comment]!
+		commentCount: Int!
+		likes: [Like]!
+		likeCount: Int!
 		images: [Image]
 		description: String
 		editable: Boolean
 		createdAt: String!
-		commentCount: Int!
 		imageCount: Int!
 	}
 
 	type Query {
-		dates: [Date]
+		getDates: [Date]
 		getDate(_id: ID!): Date
 	}
 
