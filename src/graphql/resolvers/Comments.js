@@ -35,7 +35,7 @@ export default {
 			const date = await Dates.findById(dateID);
 
 			if (date) {
-				const index = date.comments.findIndex((c) => c.id === commentID);
+				const index = date.comments.findIndex(c => c.id === commentID);
 
 				if (date.comments[index].username === username) {
 					date.comments.splice(index, 1);
