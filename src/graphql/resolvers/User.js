@@ -2,6 +2,8 @@ import { UserInputError } from 'apollo-server-express';
 import Users from '../../models/User';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import moment from 'moment';
+import 'moment/locale/es';
 import { validateUserRegisterInput, validateLoginInput } from '../../util/validators';
 
 function generateToken(user) {
@@ -50,6 +52,7 @@ export default {
 				...user._doc,
 				_id: user._id,
 				username: user.username,
+				email: user.email,
 				userlvl: user.range,
 				token
 			};
@@ -57,13 +60,30 @@ export default {
 		async createUser(
 			_,
 			{
-				input: { firstname, lastname, username, password, status, range, bachtitle, usericon }
+				input: {
+					firstname,
+					lastname,
+					username,
+					email,
+					password,
+					status,
+					range,
+					bachtitle,
+					usericon
+				}
 			},
 			context,
 			info
 		) {
 			// TODO: validate user data
-			const { valid, errors } = validateUserRegisterInput(firstname, lastname, username, password);
+			const { valid, errors } = validateUserRegisterInput(
+				firstname,
+				lastname,
+				username,
+				email,
+				password,
+				confirmPassword
+			);
 			if (!valid) {
 				throw new UserInputError('Errors', { errors });
 			}
@@ -83,12 +103,14 @@ export default {
 				firstname,
 				lastname,
 				username,
+				email,
 				password,
 				status,
 				range,
 				bachtitle,
-				usericon
-			}); ///para crear una fecha se usa 'new Date().toISOString()'
+				usericon,
+				createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
+			});
 			const res = await newUser.save();
 
 			const token = generateToken(res);

@@ -6,12 +6,14 @@ export default gql`
 		firstname: String!
 		lastname: String!
 		username: String!
+		email: String!
 		password: String!
 		status: Int!
 		range: Int!
 		token: String!
 		bachtitle: String!
 		usericon: String!
+		createdAt: String!
 	}
 
 	type Query {
@@ -23,11 +25,13 @@ export default gql`
 		firstname: String!
 		lastname: String!
 		username: String!
+		email: String!
 		password: String!
 		status: Int
 		range: Int
 		bachtitle: String
 		usericon: String
+		createdAt: String!
 	}
 
 	type Mutation {

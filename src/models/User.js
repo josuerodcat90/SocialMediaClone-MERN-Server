@@ -14,6 +14,11 @@ const userSchema = new Schema({
 		required: true,
 		unique: true
 	},
+	email: {
+		type: String,
+		required: true,
+		unique: true
+	},
 	password: {
 		type: String,
 		required: true
@@ -33,6 +38,10 @@ const userSchema = new Schema({
 	usericon: {
 		type: String,
 		default: null
+	},
+	createdAt: {
+		type: String,
+		required: true
 	}
 });
 
