@@ -53,7 +53,9 @@ export default {
 				_id: user._id,
 				username: user.username,
 				email: user.email,
-				userlvl: user.range,
+				userRange: user.range,
+				userTitle: user.bachtitle,
+				userIcon: user.icon,
 				token
 			};
 		},
