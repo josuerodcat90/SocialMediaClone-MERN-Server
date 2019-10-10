@@ -59,10 +59,10 @@ export default {
 				token
 			};
 		},
-		async createUser(
+		async register(
 			_,
 			{
-				userInput: {
+				registerInput: {
 					firstname,
 					lastname,
 					username,
