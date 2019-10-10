@@ -27,15 +27,15 @@ export default gql`
 		username: String!
 		email: String!
 		password: String!
+		confirmPassword: String!
 		status: Int
 		range: Int
 		bachtitle: String
 		usericon: String
-		createdAt: String!
 	}
 
 	type Mutation {
-		createUser(input: UserInput): User
+		createUser(userInput: UserInput): User
 		login(username: String!, password: String!): User!
 		updateUser(_id: ID, input: UserInput): User
 		deleteUser(_id: ID): User

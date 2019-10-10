@@ -62,12 +62,13 @@ export default {
 		async createUser(
 			_,
 			{
-				input: {
+				userInput: {
 					firstname,
 					lastname,
 					username,
 					email,
 					password,
+					confirmPassword,
 					status,
 					range,
 					bachtitle,
