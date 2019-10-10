@@ -33,11 +33,11 @@ const userSchema = new Schema({
 	},
 	bachtitle: {
 		type: String,
-		default: 'fa fa-user'
+		default: 'User'
 	},
 	usericon: {
 		type: String,
-		default: null
+		default: 'user'
 	},
 	createdAt: {
 		type: String,
