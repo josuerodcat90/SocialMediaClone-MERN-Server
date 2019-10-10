@@ -50,12 +50,7 @@ export default {
 
 			return {
 				...user._doc,
-				_id: user._id,
-				username: user.username,
-				email: user.email,
-				userRange: user.range,
-				userTitle: user.bachtitle,
-				userIcon: user.icon,
+				id: user._id,
 				token
 			};
 		},
