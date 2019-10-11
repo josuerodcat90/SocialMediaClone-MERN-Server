@@ -17,7 +17,7 @@ function generateToken(user) {
 			range: user.range,
 			status: user.status,
 			title: user.bachtitle,
-			icon: user.usericon
+			usericon: user.usericon
 		},
 		process.env.SECRET_KEY,
 		{ expiresIn: '1h' }
