@@ -11,8 +11,13 @@ function generateToken(user) {
 		{
 			_id: user._id,
 			username: user.username,
+			email: user.email,
 			firstname: user.firstname,
-			lastname: user.lastname
+			lastname: user.lastname,
+			range: user.range,
+			status: user.status,
+			title: user.bachtitle,
+			icon: user.usericon
 		},
 		process.env.SECRET_KEY,
 		{ expiresIn: '1h' }
