@@ -10,7 +10,9 @@ function generateToken(user) {
 	return jwt.sign(
 		{
 			_id: user._id,
-			username: user.username
+			username: user.username,
+			firstname: user.firstname,
+			lastname: user.lastname
 		},
 		process.env.SECRET_KEY,
 		{ expiresIn: '1h' }
