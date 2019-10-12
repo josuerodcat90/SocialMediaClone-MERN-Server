@@ -37,6 +37,25 @@ export default {
 		) {
 			const user = checkAuth(context);
 
+			if (title.trim() === '') {
+				throw new Error('Post title field must not be empty');
+			}
+			if (start_date.trim() === '') {
+				throw new Error('Post start date field must not be empty');
+			}
+			if (end_date.trim() === '') {
+				throw new Error('Post end date field must not be empty');
+			}
+			if (description.trim() === '') {
+				throw new Error('Post description field must not be empty');
+			}
+			if (classname.trim() === '') {
+				throw new Error('Post class name field must not be empty');
+			}
+			if (pacient.trim() === '') {
+				throw new Error('Post pacient field must not be empty');
+			}
+
 			const newDate = new Dates({
 				title,
 				start_date: moment(start_date).format('YYYY-MM-DDTHH:mm'),
@@ -44,7 +63,7 @@ export default {
 				description,
 				classname,
 				pacient,
-				user: user.username,
+				user: user.firstname + ' ' + user.lastname,
 				createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 			});
 
