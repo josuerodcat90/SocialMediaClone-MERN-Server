@@ -49,9 +49,6 @@ export default {
 			if (description.trim() === '') {
 				throw new Error('Post description field must not be empty');
 			}
-			if (classname.trim() === '') {
-				throw new Error('Post class name field must not be empty');
-			}
 			if (pacient.trim() === '') {
 				throw new Error('Post pacient field must not be empty');
 			}
