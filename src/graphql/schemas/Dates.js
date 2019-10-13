@@ -9,6 +9,7 @@ export default gql`
 		classname: String
 		pacient: ID!
 		user: String!
+		username: String!
 		comments: [Comment]!
 		commentCount: Int!
 		likes: [Like]!

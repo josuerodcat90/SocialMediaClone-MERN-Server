@@ -64,6 +64,7 @@ export default {
 				classname,
 				pacient,
 				user: user.firstname + ' ' + user.lastname,
+				username: user.username,
 				createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 			});
 
