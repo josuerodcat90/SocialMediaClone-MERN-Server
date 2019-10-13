@@ -91,17 +91,18 @@ export default {
 			}
 		},
 		async likeDate(_, { _id }, context) {
-			const { username } = checkAuth(context);
+			const { user } = checkAuth(context);
 
 			const date = await Dates.findById(_id);
 			if (date) {
-				if (date.likes.find(like => like.username === username)) {
+				if (date.likes.find(like => like.username === user.username)) {
 					/// date already likes, unlike it
-					date.likes = date.likes.filter(like => like.username !== username);
+					date.likes = date.likes.filter(like => like.username !== user.username);
 				} else {
 					/// Not liked, like date
 					date.likes.push({
-						username,
+						user: user.firstname + ' ' + user.lastname,
+						username: user.username,
 						createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 					});
 				}

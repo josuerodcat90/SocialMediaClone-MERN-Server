@@ -4,6 +4,7 @@ export default gql`
 	type Comment {
 		_id: ID!
 		createdAt: String!
+		user: String!
 		username: String!
 		body: String!
 	}
