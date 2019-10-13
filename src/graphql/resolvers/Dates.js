@@ -8,7 +8,7 @@ export default {
 	Query: {
 		async getDates() {
 			try {
-				const dates = await Dates.find().sort({ start_date: 1 });
+				const dates = await Dates.find().sort({ createdAt: -1 });
 				return dates;
 			} catch (err) {
 				throw new Error(err);
