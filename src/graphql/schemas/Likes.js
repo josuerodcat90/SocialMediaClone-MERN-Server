@@ -4,7 +4,7 @@ export default gql`
 	type Like {
 		id: ID!
 		createdAt: String!
-		user: String!
+		name: String!
 		username: String!
 	}
 	type Mutation {

@@ -8,7 +8,7 @@ export default gql`
 		end_date: String!
 		classname: String
 		pacient: ID!
-		user: String!
+		name: String!
 		username: String!
 		comments: [Comment]!
 		commentCount: Int!

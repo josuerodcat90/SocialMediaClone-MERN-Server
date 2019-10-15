@@ -60,7 +60,7 @@ export default {
 				description,
 				classname,
 				pacient,
-				user: user.firstname + ' ' + user.lastname,
+				name: user.firstname + ' ' + user.lastname,
 				username: user.username,
 				createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 			});
@@ -98,7 +98,7 @@ export default {
 				} else {
 					/// Not liked, like date
 					date.likes.push({
-						user: user.firstname + ' ' + user.lastname,
+						name: user.firstname + ' ' + user.lastname,
 						username: user.username,
 						createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 					});

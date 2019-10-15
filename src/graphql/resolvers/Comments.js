@@ -20,7 +20,7 @@ export default {
 			if (date) {
 				date.comments.unshift({
 					body,
-					user: user.firstname + ' ' + user.lastname,
+					name: user.firstname + ' ' + user.lastname,
 					username: user.username,
 					createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 				});

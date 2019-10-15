@@ -20,7 +20,7 @@ const dateSchema = new Schema({
 	comments: [
 		{
 			body: String,
-			user: String,
+			name: String,
 			username: String,
 			createdAt: String
 		}
@@ -46,7 +46,7 @@ const dateSchema = new Schema({
 		type: String,
 		required: true
 	},
-	user: {
+	name: {
 		type: String,
 		required: true
 	},
@@ -56,7 +56,7 @@ const dateSchema = new Schema({
 	},
 	likes: [
 		{
-			user: String,
+			name: String,
 			username: String,
 			createdAt: String
 		}
