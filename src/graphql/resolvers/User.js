@@ -29,8 +29,8 @@ export default {
 		async getUsers() {
 			return await Users.find();
 		},
-		async getUser(_, { _id }) {
-			return await Users.findById(_id);
+		async getUser(_, { userID }) {
+			return await Users.findById(userID);
 		}
 	},
 	Mutation: {
@@ -126,11 +126,11 @@ export default {
 				token
 			};
 		},
-		async updateUser(_, { _id, input }) {
-			return await Users.findByIdAndUpdate(_id, input, { new: true });
+		async updateUser(_, { userID, input }) {
+			return await Users.findByIdAndUpdate(userID, input, { new: true });
 		},
-		async deleteUser(_, { _id }) {
-			return await Users.findByIdAndDelete(_id);
+		async deleteUser(_, { userID }) {
+			return await Users.findByIdAndDelete(userID);
 		}
 	}
 };

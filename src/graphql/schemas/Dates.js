@@ -8,7 +8,7 @@ export default gql`
 		end_date: String!
 		classname: String
 		pacient: ID!
-		name: String!
+		nameString: String!
 		username: String!
 		comments: [Comment]!
 		commentCount: Int!
@@ -23,7 +23,7 @@ export default gql`
 
 	type Query {
 		getDates: [Date]
-		getDate(_id: ID!): Date
+		getDate(dateID: ID!): Date
 	}
 
 	input DateInput {
@@ -37,7 +37,7 @@ export default gql`
 
 	type Mutation {
 		createDate(input: DateInput): Date!
-		updateDate(_id: ID, input: DateInput): Date!
-		deleteDate(_id: ID): Date!
+		updateDate(dateID: ID, input: DateInput): Date!
+		deleteDate(dateID: ID): Date!
 	}
 `;

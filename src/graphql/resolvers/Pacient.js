@@ -5,8 +5,8 @@ export default {
 		async getPacients() {
 			return await Pacients.find();
 		},
-		async getPacient(_, { _id }) {
-			return await Pacients.findById(_id);
+		async getPacient(_, { pacientID }) {
+			return await Pacients.findById(pacientID);
 		}
 	},
 	Mutation: {
@@ -15,11 +15,11 @@ export default {
 			await newPacient.save();
 			return newPacient;
 		},
-		async updatePacient(_, { _id, input }) {
-			return await Pacients.findByIdAndUpdate(_id, input, { new: true });
+		async updatePacient(_, { pacientID, input }) {
+			return await Pacients.findByIdAndUpdate(pacientID, input, { new: true });
 		},
-		async deletePacient(_, { _id }) {
-			return await Pacients.findByIdAndDelete(_id);
+		async deletePacient(_, { pacientID }) {
+			return await Pacients.findByIdAndDelete(pacientID);
 		}
 	}
 };

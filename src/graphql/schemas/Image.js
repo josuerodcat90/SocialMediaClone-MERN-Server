@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-express';
 export default gql`
 	type Image {
 		_id: ID
-		name: String!
+		imageName: String!
 		size: String!
 		id_pac: IdPac!
 		id_dat: IdDat!
@@ -19,7 +19,7 @@ export default gql`
 	}
 
 	type Query {
-		getImage(_id: ID!): Image!
+		getImage(imageID: ID!): Image!
 		getImages: [Image]!
 	}
 
@@ -32,7 +32,7 @@ export default gql`
 	}
 
 	input ImageInput {
-		name: String!
+		imageName: String!
 		size: String!
 		id_pac: iPac!
 		id_dat: iDat!
@@ -41,6 +41,6 @@ export default gql`
 
 	type Mutation {
 		uploadImage(input: ImageInput): Image
-		deleteImage(_id: ID): Image
+		deleteImage(imageID: ID): Image
 	}
 `;

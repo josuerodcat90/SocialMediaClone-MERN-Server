@@ -6,7 +6,7 @@ import moment from 'moment';
 export default {
 	Mutation: {
 		async createComment(_, { dateID, body }, context) {
-			const { user } = checkAuth(context);
+			const user = checkAuth(context);
 			if (body.trim() === '') {
 				throw new UserInputError('Empty comment!', {
 					errors: {
@@ -20,7 +20,7 @@ export default {
 			if (date) {
 				date.comments.unshift({
 					body,
-					name: user.firstname + ' ' + user.lastname,
+					nameString: user.firstname + ' ' + user.lastname,
 					username: user.username,
 					createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 				});

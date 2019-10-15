@@ -5,8 +5,8 @@ export default {
 		async getImages() {
 			return await Images.find();
 		},
-		async getImage(_, { _id }) {
-			return await Images.findById(_id);
+		async getImage(_, { imageID }) {
+			return await Images.findById(imageID);
 		}
 	},
 	Mutation: {
@@ -15,8 +15,8 @@ export default {
 			await newImage.save();
 			return newImage;
 		},
-		async deleteImage(_, { _id }) {
-			return await Images.findByIdAndDelete(_id);
+		async deleteImage(_, { imageID }) {
+			return await Images.findByIdAndDelete(imageID);
 		}
 	}
 };

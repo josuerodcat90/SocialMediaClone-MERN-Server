@@ -17,7 +17,7 @@ export default gql`
 	}
 
 	type Query {
-		getUser(_id: ID): User!
+		getUser(userID: ID): User!
 		getUsers: [User]!
 	}
 
@@ -37,7 +37,7 @@ export default gql`
 	type Mutation {
 		register(registerInput: RegisterInput): User
 		login(username: String!, password: String!): User!
-		updateUser(_id: ID, input: RegisterInput): User
-		deleteUser(_id: ID): User
+		updateUser(userID: ID, input: RegisterInput): User
+		deleteUser(userID: ID): User
 	}
 `;

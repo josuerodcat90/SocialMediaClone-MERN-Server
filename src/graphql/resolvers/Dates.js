@@ -14,9 +14,9 @@ export default {
 				throw new Error(err);
 			}
 		},
-		async getDate(_, { _id }) {
+		async getDate(_, { dateID }) {
 			try {
-				const date = await Dates.findById(_id);
+				const date = await Dates.findById(dateID);
 				if (!date) {
 					throw new Error('Date not found!', Error);
 				} else {
@@ -60,7 +60,7 @@ export default {
 				description,
 				classname,
 				pacient,
-				name: user.firstname + ' ' + user.lastname,
+				nameString: user.firstname + ' ' + user.lastname,
 				username: user.username,
 				createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 			});
@@ -69,14 +69,14 @@ export default {
 
 			return date;
 		},
-		async updateDate(_, { _id, input }) {
-			return await Dates.findByIdAndUpdate(_id, input, { new: true });
+		async updateDate(_, { dateID, input }) {
+			return await Dates.findByIdAndUpdate(dateID, input, { new: true });
 		},
-		async deleteDate(_, { _id }, context) {
+		async deleteDate(_, { dateID }, context) {
 			const user = checkAuth(context);
 
 			try {
-				const date = await Dates.findById(_id);
+				const date = await Dates.findById(dateID);
 				if (user.username === date.username) {
 					await date.delete();
 					return 'Date deleted succesfully';
@@ -87,10 +87,10 @@ export default {
 				throw new Error(err);
 			}
 		},
-		async likeDate(_, { _id }, context) {
-			const { user } = checkAuth(context);
+		async likeDate(_, { dateID }, context) {
+			const user = checkAuth(context);
 
-			const date = await Dates.findById(_id);
+			const date = await Dates.findById(dateID);
 			if (date) {
 				if (date.likes.find(like => like.username === user.username)) {
 					/// date already likes, unlike it
@@ -98,7 +98,7 @@ export default {
 				} else {
 					/// Not liked, like date
 					date.likes.push({
-						name: user.firstname + ' ' + user.lastname,
+						nameString: user.firstname + ' ' + user.lastname,
 						username: user.username,
 						createdAt: moment().format('YYYY-MM-DDTHH:mm:ss')
 					});

@@ -14,7 +14,7 @@ export default gql`
 	}
 
 	type Query {
-		getPacient(_id: ID!): Pacient!
+		getPacient(pacientID: ID!): Pacient!
 		getPacients: [Pacient]!
 	}
 
@@ -29,7 +29,7 @@ export default gql`
 
 	type Mutation {
 		createPacient(input: PacientInput): Pacient
-		updatePacient(_id: ID, input: PacientInput): Pacient
-		deletePacient(_id: ID): Pacient
+		updatePacient(pacientID: ID, input: PacientInput): Pacient
+		deletePacient(pacientID: ID): Pacient
 	}
 `;
