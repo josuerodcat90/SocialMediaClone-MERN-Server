@@ -35,9 +35,9 @@ export default gql`
 	}
 
 	type Mutation {
-		register(registerInput: RegisterInput): User
+		register(registerInput: RegisterInput!): User!
 		login(username: String!, password: String!): User!
-		updateUser(userID: ID, input: RegisterInput): User
-		deleteUser(userID: ID): User
+		updateUser(userID: ID!, input: RegisterInput): User!
+		deleteUser(userID: ID!): User!
 	}
 `;

@@ -28,8 +28,8 @@ export default gql`
 	}
 
 	type Mutation {
-		createPacient(input: PacientInput): Pacient
-		updatePacient(pacientID: ID, input: PacientInput): Pacient
-		deletePacient(pacientID: ID): Pacient
+		createPacient(input: PacientInput!): Pacient!
+		updatePacient(pacientID: ID!, input: PacientInput): Pacient!
+		deletePacient(pacientID: ID!): Pacient!
 	}
 `;

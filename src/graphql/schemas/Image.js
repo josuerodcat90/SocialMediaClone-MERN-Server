@@ -40,7 +40,7 @@ export default gql`
 	}
 
 	type Mutation {
-		uploadImage(input: ImageInput): Image
-		deleteImage(imageID: ID): Image
+		uploadImage(input: ImageInput!): Image!
+		deleteImage(imageID: ID!): Image!
 	}
 `;
