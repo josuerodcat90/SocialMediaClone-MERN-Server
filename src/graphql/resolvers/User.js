@@ -105,7 +105,7 @@ export default {
 			if (emailVal) {
 				throw new UserInputError('Email Address in use', {
 					errors: {
-						email: 'This email are in use with other account'
+						email: 'This email is in use with other account'
 					}
 				});
 			}
