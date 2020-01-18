@@ -92,7 +92,7 @@ export default {
 			if (!valid) {
 				throw new UserInputError('Errors', { errors });
 			}
-			// TODO: make sure the user doesnt already exist
+			///make sure the user & email doesnt already exist in DB
 			const user = await Users.findOne({ username });
 			if (user) {
 				throw new UserInputError('Username is taken', {
@@ -101,7 +101,15 @@ export default {
 					}
 				});
 			}
-			/// TODO: hash password and create an auth token
+			const emailVal = await Users.findOne({ email });
+			if (emailVal) {
+				throw new UserInputError('Email Address in use', {
+					errors: {
+						email: 'This email are in use with other account'
+					}
+				});
+			}
+			///hash password and create an auth token
 			password = await bcryptjs.hash(password, 12);
 
 			const newUser = new Users({
