@@ -94,23 +94,31 @@ export default {
 			}
 			///make sure the user & email doesnt already exist in DB
 			const user = await Users.findOne({ username });
-			if (user) {
+			const emailVal = await Users.findOne({ email });
+
+			if (user && emailVal) {
+				throw new UserInputError('Username and Email Address in use', {
+					errors: {
+						username: 'This username is taken',
+						email: 'This email is in use with other account'
+					}
+				});
+			} else if (user) {
 				throw new UserInputError('Username is taken', {
 					errors: {
 						username: 'This username is taken'
 					}
 				});
-			}
-			const emailVal = await Users.findOne({ email });
-			if (emailVal) {
+			} else if (emailVal) {
 				throw new UserInputError('Email Address in use', {
 					errors: {
 						email: 'This email is in use with other account'
 					}
 				});
+			} else {
+				///hash password and create an auth token
+				password = await bcryptjs.hash(password, 12);
 			}
-			///hash password and create an auth token
-			password = await bcryptjs.hash(password, 12);
 
 			const newUser = new Users({
 				firstname,
