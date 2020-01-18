@@ -30,6 +30,25 @@ export default {
 				throw new UserInputError('Date not found');
 			}
 		},
+		async updateComment(_, { dateID, commentID, body }, context) {
+			const { username } = checkAuth(context);
+
+			const date = await Dates.findById(dateID);
+
+			if (date) {
+				const index = date.comments.findIndex(c => c.id === commentID);
+
+				if (date.comments[index].username === username) {
+					date.comments[index].body = body;
+					await date.save();
+					return date;
+				} else {
+					throw new AuthenticationError('Action not allowed');
+				}
+			} else {
+				throw new UserInputError('Comment not found');
+			}
+		},
 		async deleteComment(_, { dateID, commentID }, context) {
 			const { username } = checkAuth(context);
 

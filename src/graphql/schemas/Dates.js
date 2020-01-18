@@ -37,7 +37,7 @@ export default gql`
 
 	type Mutation {
 		createDate(input: DateInput!): Date!
-		updateDate(dateID: ID!, input: DateInput!): Date!
+		updateDate(dateID: ID!, description: String!): Date!
 		deleteDate(dateID: ID!): String!
 	}
 `;

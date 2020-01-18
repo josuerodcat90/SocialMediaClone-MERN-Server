@@ -30,9 +30,7 @@ export default {
 	Mutation: {
 		async createDate(
 			_,
-			{
-				input: { title, start_date, end_date, description, classname, pacient }
-			},
+			{ input: { title, start_date, end_date, description, classname, pacient } },
 			context
 		) {
 			const user = checkAuth(context);
@@ -69,8 +67,21 @@ export default {
 
 			return date;
 		},
-		async updateDate(_, { dateID, input }) {
-			return await Dates.findByIdAndUpdate(dateID, input, { new: true });
+		async updateDate(_, { dateID, description }, context) {
+			const user = checkAuth(context);
+
+			try {
+				const date = await Dates.findById(dateID);
+				if (user.username === date.username) {
+					date.description = description;
+					await date.save();
+					return date;
+				} else {
+					throw new AuthenticationError('Action not allowed');
+				}
+			} catch (err) {
+				throw new Error(err);
+			}
 		},
 		async deleteDate(_, { dateID }, context) {
 			const user = checkAuth(context);

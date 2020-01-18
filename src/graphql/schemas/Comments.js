@@ -11,7 +11,7 @@ export default gql`
 
 	type Mutation {
 		createComment(dateID: ID!, body: String!): Date!
-		editComment(dateID: ID!, commentID: ID!, body: String!): Date!
+		updateComment(dateID: ID!, commentID: ID!, body: String!): Date!
 		deleteComment(dateID: ID!, commentID: ID!): Date!
 	}
 `;
